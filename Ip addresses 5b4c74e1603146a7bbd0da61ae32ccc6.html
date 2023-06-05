@@ -1,0 +1,688 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Ip addresses</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="5b4c74e1-6031-46a7-bbd0-da61ae32ccc6" class="page sans"><header><img class="page-cover-image" src="https://images.unsplash.com/photo-1574405345169-f45c7d66480e?ixlib=rb-1.2.1&amp;q=80&amp;cs=tinysrgb&amp;fm=jpg&amp;crop=entropy" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="https://www.notion.so/icons/phone_green.svg"/></div><h1 class="page-title">Ip addresses</h1><p class="page-description"></p></header><div class="page-body"><table id="ebbc9523-6d35-480f-847b-5220ce643110" class="simple-table"><thead class="simple-table-header"><tr id="db28efdc-1baa-4428-88f1-f1494dcd364f"><th id="tA`O" class="simple-table-header-color simple-table-header" style="width:349px">IP V4</th><th id="Gd_a" class="simple-table-header-color simple-table-header" style="width:349px">IP V6</th></tr></thead><tbody><tr id="2172455c-267b-4981-be56-1122262485f8"><td id="tA`O" class="" style="width:349px">Inet = ipv4 = (decimal notation)</td><td id="Gd_a" class="" style="width:349px">inet6 = ipv6 = (hexadecimal notation)</td></tr><tr id="b9e2abc7-8878-4b5b-ad40-71d950d96d85"><td id="tA`O" class="" style="width:349px">This is how we communicate with layer 3 of OSI </td><td id="Gd_a" class="" style="width:349px"></td></tr><tr id="55c0d8c5-c791-4806-90e6-fd6ee622e9cb"><td id="tA`O" class="" style="width:349px">example
+192.168.57.139 = 32 bits = 4 byts</td><td id="Gd_a" class="" style="width:349px"></td></tr><tr id="32c0ab03-66f4-44c3-9ac5-dafe0262682d"><td id="tA`O" class="" style="width:349px">Ipv4 = 2^32 =  4.294,967,296</td><td id="Gd_a" class="" style="width:349px">ipv6 = 2 ^ 128 = 3.40283——e+38</td></tr></tbody></table><p id="d5602bd2-669b-4d69-b7ca-653272e8d68f" class="">
+</p><figure id="b419bb87-1f2b-4a20-aeb2-2d8ddb937fbb"><div class="source"><a href="Ip%20addresses%205b4c74e1603146a7bbd0da61ae32ccc6/Ip_addresses.pdf">https://s3-us-west-2.amazonaws.com/secure.notion-static.com/24f2396b-c02f-483c-936f-8b0b92f273e9/Ip_addresses.pdf</a></div></figure><p id="ca14e16c-affe-42b7-b568-ea0f8bf34c74" class="">
+</p><h1 id="da7cf370-b2ce-48e4-b91f-715970a6ea0e" class="">Ip meaning </h1><h2 id="4d743f85-1fbc-4792-8121-1d71c1448bf9" class="">17.172.22.44</h2><table id="e8a4dc33-d134-45ac-bf99-99a68d8adf9c" class="simple-table"><tbody><tr id="bee10055-d852-4e95-baa4-7075fe58bd1d"><td id="MxbB" class="">17</td><td id="xa^`" class="">172</td><td id="OrFd" class="">22</td><td id="?j]e" class="">44</td><td id="JZMf" class=""></td></tr><tr id="038185de-8cf2-4383-a377-94a2ff4b2b84"><td id="MxbB" class="">8 bits
+(1 byte)</td><td id="xa^`" class="">8 bits
+(1 byte)</td><td id="OrFd" class="">8 bits
+(1 byte)</td><td id="?j]e" class="">8 bits
+(1 byte)</td><td id="JZMf" class="">total = 32 bit 
+4 bytes</td></tr><tr id="9b53c597-3e6b-48dd-9983-fa16bb3f94d5"><td id="MxbB" class="">Country</td><td id="xa^`" class="">state</td><td id="OrFd" class="">ISP</td><td id="?j]e" class="">Device</td><td id="JZMf" class=""></td></tr></tbody></table><h1 id="d87fdefb-d611-41a4-b0db-ab846996af56" class="">Types of Ips</h1><ul id="cd4b656e-ac8b-47d9-9508-f9d57abb3f7f" class="bulleted-list"><li style="list-style-type:disc">Public</li></ul><ul id="a718ccf7-4fbd-4b8d-9457-ea4dcb8994fb" class="bulleted-list"><li style="list-style-type:disc">Private</li></ul><ul id="5f1a4462-2748-4ab6-9e7f-a3b674cfa11d" class="bulleted-list"><li style="list-style-type:disc">static</li></ul><ul id="c6b0334f-f158-4e33-bf59-5a22caeadca7" class="bulleted-list"><li style="list-style-type:disc">Dynamic</li></ul><h2 id="de38d5aa-602f-44e4-b8ae-52d47b1e2202" class=""></h2><table id="ed8ac0b2-804c-43e5-9429-88aaa5aaf255" class="simple-table"><thead class="simple-table-header"><tr id="9b0c74f9-0395-4fa2-a67c-028b64d61e5a"><th id="SqRU" class="simple-table-header-color simple-table-header">Private</th><th id="RlZd" class="simple-table-header-color simple-table-header">Public</th><th id="Kfb_" class="simple-table-header-color simple-table-header">Static </th><th id="LY:V" class="simple-table-header-color simple-table-header">Dynamic</th></tr></thead><tbody><tr id="3489b2dc-2d05-4cd0-a989-f958945d5b7d"><td id="SqRU" class="">Local Area Network (LAN)</td><td id="RlZd" class="">wide area network (WAN)</td><td id="Kfb_" class="">Fixed</td><td id="LY:V" class="">Changed after some time</td></tr><tr id="968bbc61-b146-40c5-ad4f-e72efa77318e"><td id="SqRU" class=""></td><td id="RlZd" class=""></td><td id="Kfb_" class=""></td><td id="LY:V" class=""></td></tr></tbody></table><p id="42b009cd-0b1c-4aed-8f47-18964bfdcbbf" class="">
+</p><p id="d7fb3617-e3fd-48fa-b9c2-056d96d75564" class="">
+</p><h1 id="147fb584-2b0d-47b5-88ec-e3c6fcc6d926" class=""> Roles of Networking Ports</h1><ul id="fb60261f-1a8e-4f36-b664-0be6ecda0072" class="bulleted-list"><li style="list-style-type:disc">Total ports 65535</li></ul><ul id="67707e12-e4b8-4fb4-a486-1a93d9574930" class="toggle"><li><details open=""><summary>States </summary><p id="b83d9473-57f1-4870-8485-8e5beb88fbdc" class="">open</p><p id="6b38eec1-ed58-48a9-b094-3ba9796e8a6a" class=""> closed</p><p id="4a793369-7070-45f3-b5c9-558336b6a9b5" class=""> filtered</p></details></li></ul><ul id="528a1d8b-3cda-4a03-bf55-4b566ae6a796" class="bulleted-list"><li style="list-style-type:disc">Well known 0-1023 </li></ul><ul id="deeb3177-2ca5-408e-a324-cd78dc531a20" class="bulleted-list"><li style="list-style-type:disc">Registered 1024 - 49151</li></ul><ul id="e75c7137-de61-4a5e-9ae9-59142549e751" class="bulleted-list"><li style="list-style-type:disc">Dynamic 49152 - 65535</li></ul><h1 id="1966aa7b-608f-4e33-9367-8d4899b55ce8" class="">Ip rules</h1><p id="cea72492-512a-4a1e-a148-620cee266b93" class="">Public = Public</p><p id="38cd70a7-010b-46b2-99dd-4adf0d6c83f6" class="">Private = private</p><p id="aa60ead7-f46b-442f-b23e-b8f5e5204039" class="">public ≠ Private</p><p id="041febdd-b656-497f-b5a8-3c0641cb9c92" class="">Private ≠ Public</p><h1 id="160e75b2-7fa5-4c57-b57e-0500d73a1598" class="">Port Rules</h1><p id="cd3ec174-346d-4f10-b24c-3278ff712003" class="">same port = same port </p><p id="d2b8e89f-ba56-4b41-a16f-479e1be89c66" class="">one port can be used at a time </p><h1 id="2ccc1ce8-3449-490a-a1e8-8d553a502f38" class="">What is network protocols ?</h1><ul id="30127228-57bd-4eb6-bd18-f9ccfdb6b44a" class="bulleted-list"><li style="list-style-type:disc">Set of rules</li></ul><ul id="7b115a61-4e92-490c-a78a-bde606e85167" class="bulleted-list"><li style="list-style-type:disc">How data is transmitted </li></ul><ul id="d9b0e1db-19e3-487d-95d9-212babdcca14" class="bulleted-list"><li style="list-style-type:disc">Device communication</li></ul><h1 id="a7b67af7-1d65-43f4-bc21-44e9b168cb64" class="">Common Protocols </h1><table id="a5abe630-86fb-470a-816a-80731c4da3ec" class="simple-table"><tbody><tr id="ebe300e3-f4f8-470f-a255-94009b735d07"><td id="l:f\" class="">TCP</td><td id="=vb:" class="">UDP</td></tr><tr id="4b6261f0-da9a-4805-9dea-0c4c19f9986e"><td id="l:f\" class="">​transmission control protocol</td><td id="=vb:" class="">User Datagram Protocol</td></tr><tr id="c1a51951-0996-4596-b292-26ed90d16503"><td id="l:f\" class=""></td><td id="=vb:" class=""></td></tr><tr id="36ea4329-dc0f-42d7-a016-f435cd6482e8"><td id="l:f\" class=""></td><td id="=vb:" class=""></td></tr></tbody></table><h1 id="c575f9f6-ce02-42a4-b08e-909b79e7019f" class="">How TCP works ?</h1><h2 id="56a36efb-5b46-45fa-9c11-024721d13e93" class="">Flags and Usage</h2><table id="8f2ad688-291d-4df0-9a81-27ce46c8eea7" class="simple-table"><thead class="simple-table-header"><tr id="ea483c45-bc80-4c2b-b600-91f6d464a1cd"><th id="@&gt;zG" class="simple-table-header-color simple-table-header">URG (Urgent)</th><th id="|yV`" class="simple-table-header-color simple-table-header">FIn (Finish)</th><th id="^?=r" class="simple-table-header-color simple-table-header">RST (Reset)</th><th id="rq&lt;w" class="simple-table-header-color simple-table-header">PSH (Push)</th><th id="^klR" class="simple-table-header-color simple-table-header">SYN(synchronize)</th><th id="sTNp" class="simple-table-header-color simple-table-header">ACK 
+(Acknowledgement)</th></tr></thead><tbody><tr id="f41c7376-6948-4f30-ab28-521cba5199d0"><td id="@&gt;zG" class="">Data contained in the in the packet should be process immediately</td><td id="|yV`" class="">There will be no further transmission </td><td id="^?=r" class="">Resets a connection</td><td id="rq&lt;w" class="">sends all buffered data immediately </td><td id="^klR" class="">Initiates a connection between hosts </td><td id="sTNp" class="">Acknowleges the receipt of a packet</td></tr><tr id="860e57e3-d86b-4b56-a195-11616c9d428d"><td id="@&gt;zG" class=""></td><td id="|yV`" class=""></td><td id="^?=r" class=""></td><td id="rq&lt;w" class=""></td><td id="^klR" class=""></td><td id="sTNp" class=""></td></tr></tbody></table><h1 id="e63fc85a-5456-4e34-90c0-15652747f5b9" class="">TCP three way Handshake</h1><p id="0e024ec6-986e-4eca-a161-bcf7c0276f78" class=""> person 1 (SYN) ⇒ Person 2</p><p id="0872306a-f484-4c8e-adca-c3323e463c85" class="">person 2 &lt;= (SYN + ACK)  </p><p id="9d7a448e-c778-470f-bd90-bba5b857c7f7" class="">person 1 ⇒ (ACK)</p><p id="54ff80fc-7567-4ec1-aa45-f28b7aac6cbb" class="">
+</p><p id="2d0001bf-a1c9-473e-adbb-6bd242c12b61" class="">
+</p><h1 id="65a822e7-b43b-4903-8db5-a3fded686248" class="">TCP Session termination </h1><p id="68b7c8f6-9b83-4077-afb4-865f1e2aaecc" class="">Person 1 (FIn) ⇒  person2</p><p id="41bc9f30-85cb-42c4-9b00-b1a19ef1305e" class="">Person 2 ← ACK Person 1</p><p id="00efa2ed-0f74-4ec4-9e63-2c93ba0775d7" class="">person 2 ← FIN Person 1</p><p id="c4bd49bc-d2fe-4bca-8063-70052e898d8c" class="">Perion 1 ACK ⇒ Person 2</p><p id="76e9bef3-d92b-46b3-a9ea-bde9d11d3fab" class="">
+</p><h1 id="05a7e221-d5eb-49c0-a454-27b3f7b19b05" class="">UDP </h1><p id="77936655-61bd-48a2-8c98-0cf2af7ebe0c" class="">Request &gt; </p><p id="cae11142-2737-432b-bc95-b363e51b90da" class="">&lt; Response</p><p id="349ab1c1-4092-4168-b6cc-c98bc691472a" class=""> &gt; Response </p><p id="1616ec36-6a02-48e7-b974-fff030e305d6" class="">
+</p></div></article></body></html>
